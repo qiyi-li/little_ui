@@ -32,7 +32,7 @@ import {inject, Ref} from 'vue';
 export default {
   setup() {
     const asideVisible = inject<Ref<boolean>>('asideVisible'); // get
-    return {asideVisible}
+    return {asideVisible};
   },
   components: {TopNav}
 };
@@ -40,18 +40,27 @@ export default {
 <style lang="scss" scoped>
 aside {
   background: lightblue;
-  width: 150px;
-  position: fixed;
-  padding: 70px 16px 16px;
   top: 0;
   left: 0;
+  width: 150px;
+  padding: 16px;
+
   > h2 {
     margin-bottom: 4px;
   }
+
   > ol {
     > li {
       padding: 4px 0;
     }
+  }
+
+}
+
+@media (max-width: 500px) {
+  aside {
+    position: fixed;
+    padding: 70px;
   }
 }
 </style>
