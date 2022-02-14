@@ -1,13 +1,14 @@
 <template>
   <div>
     <TopNav/>
-    <div class="banner"></div>
-    <h1>little_ui</h1>
-    <h2>一个ui框架</h2>
-    <p class="action">
-      <a href="">GitHub</a>
-      <a href="">Start</a>
-    </p>
+    <div class="banner">
+      <h1>little_ui</h1>
+      <h2>一个ui框架</h2>
+      <p class="actions">
+        <a href="https://github.com/qiyi-li/little_ui.git">GitHub</a>
+        <router-link to="/doc">Start</router-link>
+      </p>
+    </div>
   </div>
 </template>
 
@@ -38,7 +39,7 @@ export default {
       $h: 28px;
       height: $h;
       line-height: $h;
-      border-radius: $h/2;
+      border-radius: 14px;
       padding: 0 8px;
     }
   }
