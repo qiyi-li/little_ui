@@ -36,8 +36,8 @@ export default {
 aside {
   background: lightblue;
   width: 150px;
-  padding: 16px;
   position: fixed;
+  padding: 70px 16px 16px;
   top: 0;
   left: 0;
   > h2 {
