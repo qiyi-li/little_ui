@@ -1,9 +1,6 @@
 <template>
   <div>
-    <div class="top-nav">
-      <div class="logo"></div>
-      <div class="menu"></div>
-    </div>
+    <TopNav/>
     <div class="content">
       <aside>
         边栏
@@ -14,3 +11,10 @@
     </div>
   </div>
 </template>
+<script lang="ts">
+import TopNav from "../components/TopNav";
+
+export default {
+  components: {TopNav}
+};
+</script>
