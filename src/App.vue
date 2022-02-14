@@ -1,17 +1,13 @@
 <template>
   <div>hei</div>
-  <FFF></FFF>
+  <router-link to="JJJ">JJJ</router-link>
+  <router-link to="/FFF">FFF</router-link>
+  <router-view/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import FFF from './components/FFF.vue'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld,
-    FFF
-  }
 }
 </script>
