@@ -1,12 +1,10 @@
 <template>
   <div>
     <h3>示例1</h3>
-    <Button @click="onClick"
-            @hover="onClick"
-            @focus="onClick"
-            size="small"
-    >嘿嘿嘿
-    </Button>
+    <Button>嘿嘿嘿</Button>
+    <Button theme="button">嘿嘿嘿</Button>
+    <Button theme="link">黄辉鸿</Button>
+    <Button theme="text">黄辉鸿</Button>
   </div>
 </template>
 <script lang="ts">
