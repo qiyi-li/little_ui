@@ -1,6 +1,7 @@
 <template>
   <button class="lu-default-button"
           :class="classes"
+          :disabled="disabled"
   >
     <!--    使用v-bind 绑定属性，$attrs表示所有外部传进来的属性-->
     <slot/>
@@ -14,10 +15,11 @@ export default {
   props: {
     theme: {type: String, default: 'button'},
     size: {type: String, default: 'normal'},
-    level: {type: String, default: 'normal'}
+    level: {type: String, default: 'normal'},
+    disable: {type: String, default: false},
   },
   setup(props) {
-    const {theme, size, level} = props;
+    const {theme, size, level, disable} = props;
     const classes = computed(() => {
       return {
         [`lu-theme-${theme}`]: theme,
@@ -25,7 +27,7 @@ export default {
         [`lu-level-${level}`]: level,
       };
     });
-    return {classes};
+    return {classes, disable};
   }
 };
 </script>
@@ -36,6 +38,7 @@ $border-color: #d9d9d9;
 $color: #333;
 $blue: #40a9ff;
 $red: red;
+$grey: grey;
 $radius: 4px;
 .lu-default-button {
   box-sizing: border-box;
@@ -167,6 +170,22 @@ $radius: 4px;
       &:focus {
         color: darken($red, 10%);
       }
+    }
+  }
+
+  &.lu-theme-button {
+    &[disabled] {
+      cursor: not-allowed;
+      color: $grey;
+      &:hover {
+        border-color: $grey;
+      }
+    }
+  }
+  &.lu-theme-link, &.lu-theme-text {
+    &[disabled] {
+      cursor: not-allowed;
+      color: $grey;
     }
   }
 }
