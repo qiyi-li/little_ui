@@ -1,6 +1,6 @@
 <template>
   <button class="lu-default-button"
-          :class="{[`lu-theme-${theme}`]:theme}"
+          :class="classes"
   >
     <!--    使用v-bind 绑定属性，$attrs表示所有外部传进来的属性-->
     <slot/>
@@ -8,9 +8,22 @@
 </template>
 
 <script lang="ts">
+import {computed} from 'vue';
+
 export default {
   props: {
-    theme: {type: String, default: 'button'}
+    theme: {type: String, default: 'button'},
+    size: {type: String, default: 'normal'}
+  },
+  setup(props) {
+    const {theme, size} = props;
+    const classes = computed(() => {
+      return {
+        [`lu-theme-${theme}`]: theme,
+        [`lu-size-${size}`]: size,
+      };
+    });
+    return {classes};
   }
 };
 </script>
@@ -51,20 +64,37 @@ $radius: 4px;
     border: 0;
   }
 
-  &.lu-theme-link{
+  &.lu-theme-link {
     border-color: transparent;
     box-shadow: none;
     color: $blue;
-    &:hover,&:focus{
+
+    &:hover, &:focus {
       color: lighten($blue, 10%);
     }
   }
-  &.lu-theme-text{
+
+  &.lu-theme-text {
     border-color: transparent;
     box-shadow: none;
     color: inherit;
-    &:hover,&:focus{
+
+    &:hover, &:focus {
       background: darken(white, 5%);;
+    }
+  }
+
+  &.lu-theme-button {
+    &.lu-size-big {
+      font-size: 24px;
+      height: 48px;
+      padding: 0 16px
+    }
+
+    &.lu-size-small {
+      font-size: 12px;
+      height: 20px;
+      padding: 0 4px;
     }
   }
 }
