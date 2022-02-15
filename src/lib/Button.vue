@@ -16,10 +16,10 @@ export default {
     theme: {type: String, default: 'button'},
     size: {type: String, default: 'normal'},
     level: {type: String, default: 'normal'},
-    disable: {type: String, default: false},
+    disabled: {type: Boolean, default: false},
   },
   setup(props) {
-    const {theme, size, level, disable} = props;
+    const {theme, size, level} = props;
     const classes = computed(() => {
       return {
         [`lu-theme-${theme}`]: theme,
@@ -27,7 +27,7 @@ export default {
         [`lu-level-${level}`]: level,
       };
     });
-    return {classes, disable};
+    return {classes};
   }
 };
 </script>
@@ -177,11 +177,13 @@ $radius: 4px;
     &[disabled] {
       cursor: not-allowed;
       color: $grey;
+
       &:hover {
         border-color: $grey;
       }
     }
   }
+
   &.lu-theme-link, &.lu-theme-text {
     &[disabled] {
       cursor: not-allowed;
