@@ -1,6 +1,6 @@
 <template>
-  <button class="default-button"
-          :class="{[`theme-${theme}`]:theme}"
+  <button class="lu-default-button"
+          :class="{[`lu-theme-${theme}`]:theme}"
   >
     <!--    使用v-bind 绑定属性，$attrs表示所有外部传进来的属性-->
     <slot/>
@@ -15,13 +15,13 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 $h: 32px;
 $border-color: #d9d9d9;
 $color: #333;
 $blue: #40a9ff;
 $radius: 4px;
-.default-button {
+.lu-default-button {
   box-sizing: border-box;
   height: $h;
   padding: 0 12px;

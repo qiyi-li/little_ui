@@ -1,12 +1,12 @@
 <template>
   <div>
-    <button @click="toggle" :class="{checked:value}"><span></span></button>
+    <button class="lu-switch" @click="toggle" :class="{'lu-checked':value}"><span></span></button>
     <div>{{ value }}</div>
   </div>
 </template>
 
 <script lang="ts">
-import {ref} from "vue";
+import {ref} from 'vue';
 
 export default {
   props: {
@@ -16,17 +16,18 @@ export default {
     const checked = ref(false);
     const toggle = () => {
       // checked.value = !checked.value;
-      context.emit("update:value", !props.value);
+      context.emit('update:value', !props.value);
     };
     return {checked, toggle};
   }
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+
 $h: 22px;
 $h2: $h - 4px;
-button {
+.lu-switch {
   height: $h;
   width: $h*2;
   border: none;
@@ -55,14 +56,14 @@ button {
     }
   }
 
-  &.checked:active {
+  &.lu-checked:active {
     > span {
       width: $h2 + 4px;
       margin-left: -4px;
     }
   }
 
-  &.checked {
+  &.lu-checked {
     background-color: cornflowerblue;
 
     > span {
@@ -70,6 +71,5 @@ button {
     }
   }
 }
-
 
 </style>
