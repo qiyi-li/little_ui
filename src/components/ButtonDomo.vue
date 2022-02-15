@@ -51,6 +51,12 @@
       <Button theme="text" disabled>禁用按钮</Button>
     </div>
   </div>
+  <div>
+    <h3>示例5</h3>
+    <div>
+        <Button loading>加载中</Button>
+    </div>
+  </div>
 </template>
 <script lang="ts">
 import Button from '../lib/Button.vue';

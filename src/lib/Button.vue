@@ -4,6 +4,7 @@
           :disabled="disabled"
   >
     <!--    使用v-bind 绑定属性，$attrs表示所有外部传进来的属性-->
+    <span v-if="loading" class="lu-loadingIndicator"></span>
     <slot/>
   </button>
 </template>
@@ -17,6 +18,7 @@ export default {
     size: {type: String, default: 'normal'},
     level: {type: String, default: 'normal'},
     disabled: {type: Boolean, default: false},
+    loading: {type: Boolean, default: false},
   },
   setup(props) {
     const {theme, size, level} = props;
@@ -190,5 +192,21 @@ $radius: 4px;
       color: $grey;
     }
   }
+
+  > .lu-loadingIndicator{
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    margin-right: 4px;
+    border-radius: 8px;
+    border-color: $blue $blue $blue transparent;
+    border-style: solid;
+    border-width: 2px;
+    animation: lu-spin 1s infinite linear;
+  }
+}
+@keyframes lu-spin {
+  0%{transform: rotate(0deg)}
+  100%{transform: rotate(360deg)}
 }
 </style>
