@@ -13,14 +13,16 @@ import {computed} from 'vue';
 export default {
   props: {
     theme: {type: String, default: 'button'},
-    size: {type: String, default: 'normal'}
+    size: {type: String, default: 'normal'},
+    level: {type: String, default: 'normal'}
   },
   setup(props) {
-    const {theme, size} = props;
+    const {theme, size, level} = props;
     const classes = computed(() => {
       return {
         [`lu-theme-${theme}`]: theme,
         [`lu-size-${size}`]: size,
+        [`lu-level-${level}`]: level,
       };
     });
     return {classes};
@@ -33,6 +35,7 @@ $h: 32px;
 $border-color: #d9d9d9;
 $color: #333;
 $blue: #40a9ff;
+$red: red;
 $radius: 4px;
 .lu-default-button {
   box-sizing: border-box;
@@ -107,6 +110,63 @@ $radius: 4px;
       font-size: 12px;
       height: 20px;
       padding: 0 4px;
+    }
+  }
+
+  &.lu-theme-button {
+    &.lu-level-main {
+      background: $blue;
+      color: white;
+      border-color: $blue;
+
+      &:hover,
+      &:focus {
+        background: darken($blue, 10%);
+        border-color: darken($blue, 10%);
+      }
+    }
+
+    &.lu-level-danger {
+      background: $red;
+      border-color: $red;
+      color: white;
+
+      &:hover,
+      &:focus {
+        background: darken($red, 10%);
+        border-color: darken($red, 10%);
+      }
+    }
+  }
+
+  &.lu-theme-link {
+    &.lu-level-danger {
+      color: $red;
+
+      &:hover,
+      &:focus {
+        color: darken($red, 10%);
+      }
+    }
+  }
+
+  &.lu-theme-text {
+    &.lu-level-main {
+      color: $blue;
+
+      &:hover,
+      &:focus {
+        color: darken($blue, 10%);
+      }
+    }
+
+    &.lu-level-danger {
+      color: $red;
+
+      &:hover,
+      &:focus {
+        color: darken($red, 10%);
+      }
     }
   }
 }
