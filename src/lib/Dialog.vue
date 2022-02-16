@@ -1,25 +1,30 @@
 <template>
-  <div class="lu-dialog-overlay"></div>
-  <div class="lu-dialog-wrapper">
-    <div class="lu-dialog">
-      <header>title</header>
-      <main>
-        <p>one line</p>
-        <p>two line</p>
-      </main>
-      <footer>
-        <Button level="main">OK</Button>
-        <Button>Cancel</Button>
-      </footer>
+  <template v-if="visible">
+    <div class="lu-dialog-overlay"></div>
+    <div class="lu-dialog-wrapper">
+      <div class="lu-dialog">
+        <header>title</header>
+        <main>
+          <p>one line</p>
+          <p>two line</p>
+        </main>
+        <footer>
+          <Button level="main">OK</Button>
+          <Button onclick="">Cancel</Button>
+        </footer>
+      </div>
     </div>
-  </div>
+  </template>
 </template>
 
 <script lang="ts">
 import Button from "../lib/Button.vue";
 
 export default {
-  components: {Button}
+  components: {Button},
+  props: {
+    visible: {type: Boolean, default: false},
+  }
 };
 </script>
 
