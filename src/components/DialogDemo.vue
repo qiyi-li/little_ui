@@ -8,12 +8,14 @@
           :cancel="f2"
           title="标题"
   >
-    <div>
-      <p>段落1</p>
-      <p>段落2</p>
-      <p>段落3</p>
-    </div>
+    <template v-slot:title>
+      <strong>标题内容</strong>
+    </template>
 
+    <template v-slot:content>
+      <strong>strong</strong>
+      <div>content1</div>
+    </template>
   </Dialog>
 </template>
 <script lang="ts">
