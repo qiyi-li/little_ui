@@ -1,16 +1,19 @@
 <template>
   <template v-if="visible">
-    <div class="lu-dialog-overlay"></div>
+    <div class="lu-dialog-overlay" @click="onClickOverlay"></div>
     <div class="lu-dialog-wrapper">
       <div class="lu-dialog">
-        <header>title</header>
+        <header>
+          title
+          <span @click="close" class="lu-dialog-close"/>
+        </header>
         <main>
           <p>one line</p>
           <p>two line</p>
         </main>
         <footer>
-          <Button level="main">OK</Button>
-          <Button onclick="">Cancel</Button>
+          <Button @click="ok" level="main">OK</Button>
+          <Button @click="cancel">Cancel</Button>
         </footer>
       </div>
     </div>
@@ -18,12 +21,34 @@
 </template>
 
 <script lang="ts">
-import Button from "../lib/Button.vue";
+import Button from '../lib/Button.vue';
 
 export default {
   components: {Button},
   props: {
     visible: {type: Boolean, default: false},
+    closeOnClickOverlay: {type: Boolean, default: true},
+    ok: {type: Function},
+    cancel: {type: Function}
+  },
+  setup(props, context) {
+    const close = () => {
+      context.emit('update:visible');
+    };
+    const onClickOverlay = () => {
+      if (props.closeOnClickOverlay) context.emit('update:visible');
+    };
+    const ok = () => {
+      if (props.ok?.() !== false) {
+        close();
+      }
+    };
+    const cancel = () => {
+      if (props.cancel?.() !== false) {
+        close();
+      }
+    };
+    return {close, onClickOverlay, ok, cancel};
   }
 };
 </script>
