@@ -4,12 +4,11 @@
     <div class="lu-dialog-wrapper">
       <div class="lu-dialog">
         <header>
-          title
+          {{ title }}
           <span @click="close" class="lu-dialog-close"/>
         </header>
         <main>
-          <p>one line</p>
-          <p>two line</p>
+          <slot/>
         </main>
         <footer>
           <Button @click="ok" level="main">OK</Button>
@@ -29,7 +28,8 @@ export default {
     visible: {type: Boolean, default: false},
     closeOnClickOverlay: {type: Boolean, default: true},
     ok: {type: Function},
-    cancel: {type: Function}
+    cancel: {type: Function},
+    title: {type: String, default: '提示'}
   },
   setup(props, context) {
     const close = () => {

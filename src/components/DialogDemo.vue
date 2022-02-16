@@ -6,7 +6,15 @@
           :closeOnClickOverlay="false"
           :ok="f1"
           :cancel="f2"
-  />
+          title="标题"
+  >
+    <div>
+      <p>段落1</p>
+      <p>段落2</p>
+      <p>段落3</p>
+    </div>
+
+  </Dialog>
 </template>
 <script lang="ts">
 import Dialog from '../lib/Dialog.vue';
