@@ -39,7 +39,7 @@ $h: 32px;
 $border-color: #d9d9d9;
 $color: #333;
 $blue: #40a9ff;
-$red: red;
+$red: #ff4d4f;
 $grey: grey;
 $radius: 4px;
 .lu-default-button {
