@@ -22,10 +22,10 @@
   <Button @click="showDialog">show</Button>
 </template>
 <script lang="ts">
-import Dialog from '../lib/Dialog.vue';
-import Button from '../lib/Button.vue';
-import {ref} from 'vue';
-import {openDialog} from '../lib/openDialog';
+import Dialog from "../lib/Dialog.vue";
+import Button from "../lib/Button.vue";
+import {ref} from "vue";
+import {openDialog} from "../lib/openDialog";
 
 export default {
   components: {Dialog, Button},
@@ -35,17 +35,17 @@ export default {
       dialogVisible.value = !dialogVisible.value;
     };
     const f1 = () => {
-      console.log('f1');
+      console.log("ok f1");
     };
     const f2 = () => {
-      console.log('f2');
+      console.log("cancel f2");
     };
     const showDialog = () => {
       openDialog({
-        title: '标题',
-        content: 'Hello',
-        ok: () => {console.log('okk');},
-        cancel: () => {console.log('cancel');}
+        title: "标题",
+        content: "Hello",
+        ok: () => {console.log("okk");},
+        cancel: () => {console.log("cancel");}
       });
     };
     return {dialogVisible, toggle, f1, f2, showDialog};

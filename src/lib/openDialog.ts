@@ -1,11 +1,12 @@
-import Dialog from './Dialog.vue';
-import {createApp, h} from 'vue';
+import Dialog from "./Dialog.vue";
+import {createApp, h} from "vue";
 
 export const openDialog = (options) => {
   const {title, content, ...rest} = options;
   const div = document.createElement("div");
   document.body.appendChild(div);
-  const close = (app, div) => {
+  const close = () => {
+    // @ts-ignore
     app.unmount(div);
     div.remove();
   };
@@ -14,12 +15,12 @@ export const openDialog = (options) => {
       return h(Dialog, {
         visible: true,
         ...rest,
-        'onUpdate:visible': (newVisible) => {
+        "onUpdate:visible": (newVisible) => {
+          console.log({newVisible});
           if (newVisible === false) {
-            app.unmount(div);
-            div.remove();
+            close();
           }
-        }
+        },
       }, {title, content});
     }
   });

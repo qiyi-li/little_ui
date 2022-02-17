@@ -22,7 +22,7 @@
 </template>
 
 <script lang="ts">
-import Button from '../lib/Button.vue';
+import Button from "../lib/Button.vue";
 
 export default {
   components: {Button},
@@ -34,10 +34,10 @@ export default {
   },
   setup(props, context) {
     const close = () => {
-      context.emit('update:visible');
+      context.emit("update:visible", false);
     };
     const onClickOverlay = () => {
-      if (props.closeOnClickOverlay) context.emit('update:visible');
+      if (props.closeOnClickOverlay) context.emit("update:visible");
     };
     const ok = () => {
       if (props.ok?.() !== false) {
