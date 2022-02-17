@@ -5,7 +5,7 @@ import DocDomo from './components/DocDomo.vue';
 import SwitchDomo from './components/SwitchDomo.vue';
 import ButtonDomo from './components/ButtonDomo.vue';
 import DialogDomo from './components/DialogDemo.vue';
-import TabsDomo from './components/Tabs.vue';
+import TabsDomo from './components/TabsDemo.vue';
 
 const history = createWebHashHistory();
 export const router = createRouter({
