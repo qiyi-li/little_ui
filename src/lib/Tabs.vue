@@ -10,15 +10,16 @@
       <div ref="indicator" class="lu-tabs-nav-indicator"></div>
     </div>
     <div class="lu-tabs-content">
-      <component class="lu-tabs-content-item" :class="{selected:c.props.title===selected}" v-for="(c,index) in defaults"
-                 :is="c" :key="index"/>
+      <component :is="current" :key="current.props.title"/>
+<!--      <component class="lu-tabs-content-item" :class="{selected:c.props.title===selected}" v-for="(c,index) in defaults"
+                 :is="c" :key="index"/>-->
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import Tab from './Tab.vue';
-import {ref, watchEffect} from 'vue';
+import {computed, ref, watchEffect} from 'vue';
 
 export default {
   props: {
@@ -47,13 +48,16 @@ export default {
         throw new Error('Tabs内子标签必须是Tab');
       }
     });
+    const current = computed(() => {
+      return defaults.find(tag => tag.props.title === props.selected);
+    });
     const titles = defaults.map(tab => {
       return tab.props.title;
     });
     const select = (title: string) => {
       context.emit('update:selected', title);
     };
-    return {defaults, titles, select, selectedItem, indicator, container};
+    return {defaults, titles, select, selectedItem, indicator, container, current};
   }
 };
 </script>
@@ -95,14 +99,6 @@ $border-color: #d9d9d9;
 
   &-content {
     padding: 8px 0;
-
-    &-item {
-      display: none;
-
-      &.selected {
-        display: block;
-      }
-    }
   }
 }
 </style>
