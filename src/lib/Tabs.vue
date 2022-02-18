@@ -3,7 +3,7 @@
     <div class="lu-tabs-nav" ref="container">
       <div class="lu-tabs-nav-item" :class="{selected:t===selected}" @click="select(t)"
            v-for="(t,index) in titles"
-           :ref="el=>{if(el) navItems[index]=el}"
+           :ref="el=>{if(t===selected) selectedItem=el}"
            :key="index">
         {{ t }}
       </div>
@@ -25,18 +25,14 @@ export default {
     selected: {type: String}
   },
   setup(props, context) {
-    const navItems = ref<HTMLDivElement[]>([]);
+    const selectedItem = ref<HTMLMediaElement>(null);
     const indicator = ref<HTMLDivElement>(null);
     const container = ref<HTMLDivElement>(null);//nav的container
     const x = () => {
-      const divs = navItems.value;
-      const result = divs.filter(div => {
-        return div.classList.contains('selected');
-      })[0];//选中的nav
-      const {width} = result.getBoundingClientRect();
+      const {width} = selectedItem.value.getBoundingClientRect();
       indicator.value.style.width = width + 'px';
       const {left: left1} = container.value.getBoundingClientRect();
-      const {left: left2} = result.getBoundingClientRect();
+      const {left: left2} = selectedItem.value.getBoundingClientRect();
       const left = left2 - left1;
       indicator.value.style.left = left + 'px'; //设置下划线的left
     };
@@ -57,7 +53,7 @@ export default {
     const select = (title: string) => {
       context.emit('update:selected', title);
     };
-    return {defaults, titles, select, navItems, indicator, container};
+    return {defaults, titles, select, selectedItem, indicator, container};
   }
 };
 </script>
