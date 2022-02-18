@@ -1,6 +1,6 @@
 <template>
   <div class="lu-tabs">
-    <div class="lu-tabs-nav">
+    <div class="lu-tabs-nav" ref="container">
       <div class="lu-tabs-nav-item" :class="{selected:t===selected}" @click="select(t)"
            v-for="(t,index) in titles"
            :ref="el=>{if(el) navItems[index]=el}"
@@ -18,7 +18,7 @@
 
 <script lang="ts">
 import Tab from './Tab.vue';
-import {onMounted, ref} from 'vue';
+import {onMounted, onUpdated, ref} from 'vue';
 
 export default {
   props: {
@@ -27,14 +27,23 @@ export default {
   setup(props, context) {
     const navItems = ref<HTMLDivElement[]>([]);
     const indicator = ref<HTMLDivElement>(null);
-    onMounted(() => {
+    const container = ref<HTMLDivElement>(null);//nav的container
+    const x = () => {
       const divs = navItems.value;
       const result = divs.filter(div => {
         return div.classList.contains('selected');
-      })[0];
+      })[0];//选中的nav
       const {width} = result.getBoundingClientRect();
       indicator.value.style.width = width + 'px';
-    });
+      const {left: left1} = container.value.getBoundingClientRect();
+      const {left: left2} = result.getBoundingClientRect();
+      const left = left2 - left1;
+      indicator.value.style.left = left + 'px'; //设置下划线的left
+    };
+
+    onMounted(x);
+
+    onUpdated(x);
 
     const defaults = context.slots.default();
     defaults.forEach((tab) => {
@@ -48,7 +57,7 @@ export default {
     const select = (title: string) => {
       context.emit('update:selected', title);
     };
-    return {defaults, titles, select, navItems, indicator};
+    return {defaults, titles, select, navItems, indicator, container};
   }
 };
 </script>
@@ -84,6 +93,7 @@ $border-color: #d9d9d9;
       background-color: $blue;
       left: 0;
       bottom: -1px;
+      transition: all 250ms;
     }
   }
 
