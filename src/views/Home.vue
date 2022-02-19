@@ -39,7 +39,7 @@ $color: #007c77;
 .topNavAndBanner {
   background: linear-gradient(145deg, rgba(227, 255, 253, 1) 0%, rgba(183, 233, 230, 1) 100%);
   //background: linear-gradient(104deg, rgba(216,226,223,1) 0%, rgba(238,216,202,1) 53%, rgba(236,213,222,1) 100%);
-
+  clip-path: ellipse(80% 60% at 50% 40%);
 }
 
 .banner {
