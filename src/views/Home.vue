@@ -1,13 +1,26 @@
 <template>
-  <div class="topNavAndBanner">
-    <TopNav/>
-    <div class="banner">
-      <h1>little_ui</h1>
-      <h2>一个ui框架</h2>
-      <p class="actions">
-        <a href="https://github.com/qiyi-li/little_ui.git">GitHub</a>
-        <router-link to="/doc">Start</router-link>
-      </p>
+  <div>
+    <div class="topNavAndBanner">
+      <TopNav/>
+      <div class="banner">
+        <h1>little_ui</h1>
+        <h2>一个ui框架</h2>
+        <p class="actions">
+          <a href="https://github.com/qiyi-li/little_ui.git">GitHub</a>
+          <router-link to="/doc">Start</router-link>
+        </p>
+      </div>
+    </div>
+    <div class="features">
+      <svg class="icon">
+        <use xlink:href="#icon-Vue"></use>
+      </svg>
+      <svg class="icon">
+        <use xlink:href="#icon-typescript"></use>
+      </svg>
+      <svg class="icon">
+        <use xlink:href="#icon-light"></use>
+      </svg>
     </div>
   </div>
 </template>
@@ -52,6 +65,13 @@ $color: #007c77;
         text-decoration: none;
       }
     }
+  }
+}
+
+.features {
+  > svg {
+    width: 64px;
+    height: 64px;
   }
 }
 </style>
