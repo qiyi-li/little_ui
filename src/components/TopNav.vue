@@ -14,16 +14,15 @@ import {inject, Ref} from 'vue';
 export default {
   setup() {
     const asideVisible = inject<Ref<boolean>>('asideVisible'); // get
-    const toggleAside = ()=>{
-      asideVisible.value =!asideVisible.value  //取反
-    }
-    return {toggleAside}
+    const toggleAside = () => {
+      asideVisible.value = !asideVisible.value;  //取反
+    };
+    return {toggleAside};
   },
 };
 </script>
 <style lang="scss" scoped>
 .top-nav {
-  background: pink;
   display: flex;
   padding: 16px;
   position: fixed;
@@ -48,21 +47,29 @@ export default {
       margin: 0 1em;
     }
   }
-  >.toggleAside{
+
+  > .toggleAside {
     width: 24px;
     height: 24px;
     background-color: green;
     position: absolute;
     left: 16px;
     top: 50%;
-    transform:translateY(-50%);
+    transform: translateY(-50%);
     display: none;
 
   }
-  @media(max-width: 500px){
-    >.menu {display: none;}
-    >.logo {margin:0 auto}
-    >.toggleAside{display: inline-block;}
+
+  @media(max-width: 500px) {
+    > .menu {
+      display: none;
+    }
+    > .logo {
+      margin: 0 auto
+    }
+    > .toggleAside {
+      display: inline-block;
+    }
   }
 }
 </style>
