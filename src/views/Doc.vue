@@ -69,6 +69,12 @@ export default {
   }
 }
 
+.router-link-active{
+  display: inline-block;
+
+  text-decoration: underline;
+}
+
 .content {
   display: flex;
 
@@ -84,21 +90,25 @@ export default {
 }
 
 aside {
-  background: lightblue;
   top: 0;
   left: 0;
-  width: 150px;
+  min-width: 150px;
   position: fixed;
-  padding: 70px 16px 16px;
+  padding-top: 70px;
   height: 100%;
 
   > h2 {
     margin-bottom: 4px;
+    padding-left: 30px;
   }
 
   > ol {
     > li {
-      padding: 4px 0;
+      height: 40px;
+      a{
+        line-height: 40px;
+        padding-left: 24px;
+      }
     }
   }
 }
