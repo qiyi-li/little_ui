@@ -69,12 +69,6 @@ export default {
   }
 }
 
-.router-link-active{
-  display: inline-block;
-
-  text-decoration: underline;
-}
-
 .content {
   display: flex;
 
@@ -105,7 +99,15 @@ aside {
   > ol {
     > li {
       height: 40px;
-      a{
+
+      a {
+        &.router-link-active {
+          text-decoration: none;
+          background: #dcfcfa;
+        }
+
+        width: 100%;
+        display: inline-block;
         line-height: 40px;
         padding-left: 24px;
       }
