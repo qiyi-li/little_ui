@@ -7,14 +7,8 @@
 </template>
 
 <script lang="ts">
-import Switch from '../lib/Switch.vue';
 import Switch1Demo from './Switch1.demo.vue';
 import Switch2Demo from './Switch2.demo.vue';
-import Button from '../lib/Button.vue';
-import 'prismjs';
-import 'prismjs/themes/prism-okaidia.css';
-
-const Prism = window.Prism;
 import {
   ref
 } from 'vue';
@@ -23,13 +17,10 @@ import Demo from './Demo.vue';
 export default {
   components: {
     Demo,
-    Switch,
-    Button,
   },
   setup() {
-    const bool = ref(false);
     return {
-      bool, Switch2Demo, Switch1Demo, Prism
+      Switch2Demo, Switch1Demo
     };
   }
 };
