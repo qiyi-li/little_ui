@@ -10,13 +10,14 @@ import {ref} from 'vue';
 
 export default {
   props: {
-    value: Boolean
+    value: Boolean,
+    disabled: Boolean
   },
   setup(props, context) {
     const checked = ref(false);
     const toggle = () => {
       // checked.value = !checked.value;
-      context.emit('update:value', !props.value);
+      !props.disabled && context.emit('update:value', !props.value);
     };
     return {checked, toggle};
   }
