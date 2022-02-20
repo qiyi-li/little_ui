@@ -4,23 +4,15 @@
 </template>
 
 <script lang="ts">
-import {ref} from 'vue';
 
 export default {
   props: {
-    path: {type: String, required: true}
+    content: {type: String, required: true}
   },
-  setup(props) {
-    const content = ref<string>('');
-    import(props.path).then(result => {
-      content.value = result.default;
-    });
-    return {content};
-  }
 };
 </script>
 <style lang="scss" scoped>
-.markdown-body{
+.markdown-body {
   padding: 16px;
   border-radius: 4px;
 }
