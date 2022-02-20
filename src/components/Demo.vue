@@ -20,7 +20,8 @@ import {computed, ref} from 'vue';
 
 const Prism = window.Prism;
 export default {
-  props: {component: Object, components: {Button}},
+  props: {component: Object},
+  components:{Button},
   setup(props) {
     const html = computed(() => {
       return Prism.highlight(props.component.__sourceCode, Prism.languages.html, 'html');
