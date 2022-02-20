@@ -19,3 +19,9 @@ export default {
   }
 };
 </script>
+<style lang="scss" scoped>
+.markdown-body{
+  padding: 16px;
+  border-radius: 4px;
+}
+</style>

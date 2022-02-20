@@ -1,7 +1,6 @@
 import {createWebHashHistory, createRouter} from 'vue-router';
 import Home from './views/Home.vue';
 import Doc from './views/Doc.vue';
-import DocDomo from './components/DocDomo.vue';
 import SwitchDomo from './components/SwitchDomo.vue';
 import ButtonDomo from './components/ButtonDomo.vue';
 import DialogDomo from './components/DialogDemo.vue';
@@ -17,7 +16,7 @@ export const router = createRouter({
     {path: '/', component: Home},
     {
       path: '/doc', component: Doc, children: [
-        {path: '', component: DocDomo},
+        {path: '', redirect: '/doc/intro'},
         {path: 'intro', component: returnMarkDown('intro')},
         {path: 'install', component: returnMarkDown('install')},
         {path: 'get-started', component: returnMarkDown('get-started')},

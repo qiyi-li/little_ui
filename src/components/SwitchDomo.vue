@@ -1,7 +1,9 @@
 <template>
-  <h1>Switch 组件示例 </h1>
-  <Demo :component="Switch1Demo"/>
-  <Demo :component="Switch2Demo"/>
+  <div class="wrapper">
+    <h1>Switch 组件示例 </h1>
+    <Demo :component="Switch1Demo"/>
+    <Demo :component="Switch2Demo"/>
+  </div>
 </template>
 
 <script lang="ts">
@@ -26,7 +28,12 @@ export default {
 
 <style lang="scss" scoped>
 $border-color: #d9d9d9;
+div.wrapper{
+  background-color: #fff;
+  padding: 16px;
+}
 .demo {
+  background-color: #ffffff;
   border: 1px solid $border-color;
   margin: 16px 0 32px;
 

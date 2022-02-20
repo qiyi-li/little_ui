@@ -86,10 +86,11 @@ export default {
 aside {
   top: 0;
   left: 0;
+  z-index: 10;
   min-width: 150px;
   position: fixed;
   padding-top: 70px;
-  height: 100%;
+  background-color: #fff;
 
   > h2 {
     margin-bottom: 4px;

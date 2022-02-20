@@ -1,7 +1,9 @@
 <template>
-  <h1>Dialog示例</h1>
-  <Demo :component="Dialog1Demo"/>
-  <Demo :component="Dialog2Demo"/>
+  <div class="wrapper">
+    <h1>Dialog示例</h1>
+    <Demo :component="Dialog1Demo"/>
+    <Demo :component="Dialog2Demo"/>
+  </div>
 </template>
 <script lang="ts">
 import Demo from './Demo.vue';
@@ -20,3 +22,9 @@ export default {
   }
 };
 </script>
+<style lang="scss">
+div.wrapper{
+  background-color: #fff;
+  padding: 16px;
+}
+</style>
