@@ -1,6 +1,10 @@
 {
-  "name": "little_ui",
-  "version": "0.0.2",
+  "name": "err-little-ui",
+  "version": "0.0.1",
+  "files": [
+    "dist/lib/*"
+  ],
+  "main": "dist/lib/little-ui.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build"

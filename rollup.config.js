@@ -10,7 +10,7 @@ export default {
     globals: {
       vue: 'Vue'
     },
-    name: 'little-ui',
+    name: 'err-little-ui',
     file: 'dist/lib/little-ui.js',
     format: 'umd',
     plugins: [terser()]
